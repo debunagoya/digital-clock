@@ -36,10 +36,8 @@ bool jbar(int a, int *b, int n) {
 
 void lighton() {
   if ( digitalRead(photocellPin) == 0 ) { leds[thisLED].r = 0; leds[thisLED].g = 0; leds[thisLED].b = 0; }
-  else if ( 0 <= hour() && hour() < 6 ) { leds[thisLED].r = 0; leds[thisLED].g = 0; leds[thisLED].b = 255; }
-  else if ( 6 <= hour()  && hour() < 12 ) { leds[thisLED].r = 0; leds[thisLED].g = 255; leds[thisLED].b = 0; }
-  else if ( 12 <= hour() && hour() < 18 ) { leds[thisLED].r = 255; leds[thisLED].g = 0; leds[thisLED].b = 0; }
-  else if ( 18 <= hour() && hour() < 24 ) { leds[thisLED].r = 255; leds[thisLED].g = 255; leds[thisLED].b = 255; }
+  else if ( 18 <= hour() || hour() < 6 ) { leds[thisLED].r = 0; leds[thisLED].g = 0; leds[thisLED].b = 255; }
+  else if ( 6 <= hour()  && hour() < 18 ) { leds[thisLED].r = 0; leds[thisLED].g = 255; leds[thisLED].b = 0; }
 }
 
 void loop() { 
